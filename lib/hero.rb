@@ -1,16 +1,16 @@
-
 class Hero
-  @vitality = 100
+  attr_reader :strength, :is_alive, :vitality, :name, :nickname
 
   def initialize(identity, strength)
+    @vitality = 100
     @name = identity.name
     @nickname = identity.nickname
     @strength = strength
     @is_alive = true
   end
 
-  def hit(other)
-    other.gets_hit(force_of_impact)
+  def hit(other, impact)
+    other.gets_hit(impact)
   end
 
   def gets_hit(impact)
@@ -20,17 +20,5 @@ class Hero
 
   def to_s
     "Name: #{@name}\nNickname: #{@nickname}\nStrength: #{@strength}"
-  end
-
-  private
-
-  def force_of_impact
-    @strength * threw_a_dice
-  end
-
-  private
-
-  def threw_a_dice
-    rand(1..6)
   end
 end

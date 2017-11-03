@@ -1,4 +1,4 @@
-require './hero.rb'
+require_relative '../hero.rb'
 
 class BadGuy < Hero
   def initialize(identity, strength)

@@ -1,7 +1,7 @@
-require './hero.rb'
+require_relative '../hero.rb'
 
 class GoodGuy < Hero
-
+  attr_reader :special_skill
   @special_skill
 
 
@@ -9,6 +9,11 @@ class GoodGuy < Hero
     super(identity, strength)
 
     @special_skill = special_skill
+  end
+
+  def use_revive
+    @special_skill = 'none'
+    @vitality = 100
   end
 
   def to_s
